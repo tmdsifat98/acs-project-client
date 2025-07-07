@@ -9,6 +9,7 @@ import PrivateRoute from "./PrivateRoute";
 import DashboardHome from "../pages/Dashboard/DashboardHome";
 import AdminRoute from "./AdminRoute";
 import TeacherRequest from "../pages/Dashboard/TeacherRequest";
+import BeATeacher from "../pages/Dashboard/BeATeacher";
 
 const router = createBrowserRouter([
   { path: "/", Component: Root, children: [{ index: true, Component: Home }] },
@@ -33,11 +34,14 @@ const router = createBrowserRouter([
         path: "teacherRequest",
         element: (
           <AdminRoute>
-            <TeacherRequest/>
+            <TeacherRequest />
           </AdminRoute>
         ),
       },
-      
+      {
+        path: "beATeacher",
+        Component: BeATeacher,
+      },
     ],
   },
 ]);
