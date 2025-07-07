@@ -19,7 +19,7 @@ const ContextProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  const signInGoogle = () => {
+  const googleLogin = () => {
     setLoading(true);
     return signInWithPopup(auth, provider);
   };
@@ -44,7 +44,7 @@ const ContextProvider = ({ children }) => {
     loading,
     logInUser,
     logOut,
-    signInGoogle,
+    googleLogin,
     setUser,
     mail,
     setMail,

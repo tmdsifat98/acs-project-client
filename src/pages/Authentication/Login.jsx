@@ -1,27 +1,55 @@
 import React, { useEffect, useState } from "react";
 import { IoEye, IoEyeOff, IoLockOpenOutline } from "react-icons/io5";
-import { Link } from "react-router";
-import loginAnimation from "../../assets/loginLotie.json";
-import Lottie from "lottie-react";
+import { Link, useLocation, useNavigate } from "react-router";
 import Swal from "sweetalert2";
+import useAuth from "../../hooks/useAuth";
 import { MdOutlineEmail } from "react-icons/md";
+import loginLottie from "../../assets/loginLotie.json";
+import SocialLogin from "./SocialLogin";
+import useAxiosLocal from "../../hooks/useAxiosLocal";
+import Lottie from "lottie-react";
 
 const Login = () => {
+  const { loginUser } = useAuth();
+  const axiosLocal = useAxiosLocal();
+
+    const location = useLocation();
+  const navigate = useNavigate();
+
   const [showPass, setShowPass] = useState(false);
   const handleLogin = (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const email = form.email.value;
-    const password = form.password.value;
-    console.log(email, password);
-  };
+  e.preventDefault();
+  const form = e.target;
+  const email = form.email.value;
+  const password = form.password.value;
+  loginUser(email, password)
+    .then(async (res) => {
+      const name = res.user.displayName;
+
+      await axiosLocal.post("/users", { email, name }).then((res) => {
+        if (res.data.insertedId || res.data.modifiedCount) {
+          navigate(location.state?.from || "/");
+          // Show success message
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Login successful!",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
+    })
+    .catch((err) => console.log(err));
+};
+
   useEffect(() => {
-    document.title = "All Event | Login";
+    document.title = "Profast | Login";
   }, []);
   return (
     <div className="flex flex-col md:flex-row justify-center md:gap-20 items-center min-h-[calc(100vh-64px)]">
       <div className="z-10 w-11/12 backdrop-blur-sm p-8 rounded shadow-2xl md:max-w-md transition-colors duration-500">
-        <h2 className="text-3xl font-bold font-playfair text-center  dark:text-white mb-6">
+        <h2 className="text-3xl font-bold font-playfair text-center dark:text-white mb-6">
           Please Log in!
         </h2>
 
@@ -64,18 +92,22 @@ const Login = () => {
             </div>
           </div>
           <div className="mt-5">
-            <button className="w-full btn btn-primary">Log In</button>
+            <button className="w-full btn btn-primary text-black">
+              Log In
+            </button>
           </div>
         </form>
-        <p className="mt-4 dark:text-gray-200">
+        <p className="mt-2 dark:text-gray-200">
           Don't have any account? Please{" "}
           <Link className="text-blue-700 hover:underline" to="/auth/signup">
             Sign Up
           </Link>
         </p>
+        <div className="divider">OR</div>
+        <SocialLogin />
       </div>
-      <div className="hidden md:block">
-        <Lottie animationData={loginAnimation} />
+      <div>
+        <Lottie animationData={loginLottie} />
       </div>
     </div>
   );

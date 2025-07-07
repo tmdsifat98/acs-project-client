@@ -8,7 +8,7 @@ import useAuth from "../hooks/useAuth";
 import Logo from "./Logo";
 
 const Navbar = () => {
-  const { user,logOut } = useAuth();
+  const { user, logOut } = useAuth();
 
   const handleLogOut = () => {
     logOut()
@@ -35,19 +35,25 @@ const Navbar = () => {
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink to="/all-rooms">Rooms</NavLink>
+        <NavLink to="/classes">Classes</NavLink>
       </li>
       {user && (
-        <li>
-          <NavLink to="/myBookings">My Bookings</NavLink>
-        </li>
+        <>
+          <li>
+            <NavLink to="/testPaper">Test Paper</NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/about-us">Routine</NavLink>
+          </li>
+          <li>
+            <NavLink to="/gallery">Practice</NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard">Dashboard</NavLink>
+          </li>
+        </>
       )}
-       <li>
-        <NavLink to="/about-us">About Us</NavLink>
-      </li>
-       <li>
-        <NavLink to="/gallery">Gallery</NavLink>
-      </li>
     </>
   );
   return (
@@ -65,7 +71,9 @@ const Navbar = () => {
           </ul>
         </div>
         <Link to="/">
-        <div className="hidden lg:block"><Logo/></div>
+          <div className="hidden lg:block">
+            <Logo />
+          </div>
           <img className="h-10 lg:hidden" src={logo} alt="Logo" />
         </Link>
       </div>
@@ -73,7 +81,6 @@ const Navbar = () => {
         <ul className="flex gap-6 text-lg font-semibold">{links}</ul>
       </div>
       <div className="navbar-end gap-2 lg:gap-4 items-center">
-        <Theme />
         {user ? (
           <div className="dropdown dropdown-end">
             <div
@@ -82,14 +89,21 @@ const Navbar = () => {
               className="btn btn-ghost btn-circle avatar"
             >
               <div className="w-10 h-10 rounded-full z-50">
-                <img id="user-photo" alt={user?.displayName} src={user?.photoURL} />
+                <img
+                  id="user-photo"
+                  alt={user?.displayName}
+                  src={user?.photoURL}
+                />
               </div>
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-gray-500 w-44 mt-2 p-2 shadow"
+              className="menu menu-sm dropdown-content items-center gap-4 w-44 mt-2 p-2 shadow"
             >
-              <button onclick={handleLogOut}>Log out</button>
+              <Theme />
+              <button className="btn btn-primary" onClick={handleLogOut}>
+                Log out
+              </button>
             </ul>
           </div>
         ) : (

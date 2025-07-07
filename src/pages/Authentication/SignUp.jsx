@@ -74,7 +74,6 @@ const SignUp = () => {
         `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_API}`,
         formData
       );
-      console.log(res.data);
       setImageUrl(res.data.data.display_url);
     } catch (err) {
       console.error("Image Upload Failed:", err);
@@ -84,7 +83,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row justify-center md:gap-20 items-center min-h-[calc(100vh-64px)]">
+    <div className="flex flex-col md:flex-row justify-center md:gap-20 mt-12 md:mt-0 items-center min-h-[calc(100vh-64px)]">
       {/* Left Side - Form */}
       <div className="z-10 w-11/12 backdrop-blur-sm p-8 rounded shadow-2xl md:max-w-md transition-colors duration-500">
         <div className="flex justify-center mb-4">
@@ -207,7 +206,7 @@ const SignUp = () => {
 
       {/* Right Side - Image */}
       <div>
-        <Lottie animationData={signUpAnimation} className="w-96 h-96" />
+        <Lottie animationData={signUpAnimation} className="" />
       </div>
     </div>
   );
