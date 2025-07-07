@@ -10,7 +10,7 @@ import useAxiosLocal from "../../hooks/useAxiosLocal";
 import Lottie from "lottie-react";
 
 const Login = () => {
-  const { loginUser } = useAuth();
+  const { logInUser } = useAuth();
   const axiosLocal = useAxiosLocal();
 
     const location = useLocation();
@@ -22,7 +22,7 @@ const Login = () => {
   const form = e.target;
   const email = form.email.value;
   const password = form.password.value;
-  loginUser(email, password)
+  logInUser(email, password)
     .then(async (res) => {
       const name = res.user.displayName;
 
