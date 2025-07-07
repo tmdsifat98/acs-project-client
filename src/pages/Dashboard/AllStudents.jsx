@@ -44,12 +44,13 @@ const AllStudents = () => {
         <p>No students found.</p>
       ) : (
         <div className="overflow-x-auto">
-          <table className="table table-zebra w-full">
+          <table className="table table-zebra w-full text-center">
             <thead>
               <tr>
                 <th>#</th>
                 <th>Name</th>
                 <th>Email</th>
+                <th>Current role</th>
                 <th>Created At</th>
                 <th>Last Login</th>
                 <th>Action</th>
@@ -61,6 +62,7 @@ const AllStudents = () => {
                   <td>{index + 1}</td>
                   <td>{user.name}</td>
                   <td>{user.email}</td>
+                  <td>{user.role}</td>
                   <td>{new Date(user.createdAt).toLocaleDateString()}</td>
                   <td>{new Date(user.lastLogIn).toLocaleString()}</td>
                   <td>

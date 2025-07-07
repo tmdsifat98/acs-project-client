@@ -43,7 +43,7 @@ const AllTeachers = () => {
         <p>No approved teachers found.</p>
       ) : (
         <div className="overflow-x-auto">
-          <table className="table table-zebra w-full">
+          <table className="table table-zebra w-full text-center">
             <thead>
               <tr>
                 <th>#</th>

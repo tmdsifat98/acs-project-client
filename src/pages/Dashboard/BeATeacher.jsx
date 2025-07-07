@@ -38,10 +38,9 @@ const BeATeacher = () => {
   return (
     <div className="max-w-2xl mx-auto p-6 bg-base-100 dark:bg-gray-800 shadow rounded">
       <h2 className="text-2xl font-bold mb-4 text-primary">Be a Teacher</h2>
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
         {/* Name */}
-        <div>
+        <div className="space-y-1">
           <label className="label">Name</label>
           <input
             readOnly
@@ -51,7 +50,7 @@ const BeATeacher = () => {
         </div>
 
         {/* Email */}
-        <div>
+        <div className="space-y-1">
           <label className="label">Email</label>
           <input
             readOnly
@@ -60,20 +59,29 @@ const BeATeacher = () => {
           />
         </div>
 
-        {/* Age */}
-        <div>
-          <label className="label">Age</label>
-          <input
-            type="number"
-            {...register("age", { required: "Age is required" })}
-            className="input input-bordered w-full dark:bg-gray-700"
-            placeholder="Your age"
-          />
-          {errors.age && <span className="text-red-500">{errors.age.message}</span>}
+        {/* interested in */}
+        <div className="space-y-1">
+          <label className="label">Want to teach</label>
+          <select
+            {...register("interestedSubject", {
+              required: "Subject is required",
+            })}
+            className="select select-bordered w-full dark:bg-gray-700"
+          >
+            <option value="">Select a subject</option>
+            <option value="Physics">Physics</option>
+            <option value="ICT">ICT</option>
+            <option value="Math">Math</option>
+          </select>
+          {errors.interestedSubject && (
+            <span className="text-red-500">
+              {errors.interestedSubject.message}
+            </span>
+          )}
         </div>
 
         {/* Mobile Number */}
-        <div>
+        <div className="space-y-1">
           <label className="label">Mobile Number</label>
           <input
             type="text"
@@ -81,35 +89,45 @@ const BeATeacher = () => {
             className="input input-bordered w-full dark:bg-gray-700"
             placeholder="Your mobile number"
           />
-          {errors.mobile && <span className="text-red-500">{errors.mobile.message}</span>}
+          {errors.mobile && (
+            <span className="text-red-500">{errors.mobile.message}</span>
+          )}
         </div>
 
         {/* Institution */}
-        <div>
+        <div className="space-y-1">
           <label className="label">Institution</label>
           <input
             type="text"
-            {...register("institution", { required: "Institution name is required" })}
+            {...register("institution", {
+              required: "Institution name is required",
+            })}
             className="input input-bordered w-full dark:bg-gray-700"
             placeholder="Your institution"
           />
-          {errors.institution && <span className="text-red-500">{errors.institution.message}</span>}
+          {errors.institution && (
+            <span className="text-red-500">{errors.institution.message}</span>
+          )}
         </div>
 
         {/* Department / Subject */}
-        <div>
+        <div className="space-y-1">
           <label className="label">Department / Subject</label>
           <input
             type="text"
-            {...register("department", { required: "Department / Subject is required" })}
+            {...register("department", {
+              required: "Department / Subject is required",
+            })}
             className="input input-bordered w-full dark:bg-gray-700"
             placeholder="Your department or subject"
           />
-          {errors.department && <span className="text-red-500">{errors.department.message}</span>}
+          {errors.department && (
+            <span className="text-red-500">{errors.department.message}</span>
+          )}
         </div>
 
         {/* Experience */}
-        <div>
+        <div className="space-y-1">
           <label className="label">Years of Experience</label>
           <input
             type="number"
@@ -117,11 +135,13 @@ const BeATeacher = () => {
             className="input input-bordered w-full dark:bg-gray-700"
             placeholder="Years of teaching experience"
           />
-          {errors.experience && <span className="text-red-500">{errors.experience.message}</span>}
+          {errors.experience && (
+            <span className="text-red-500">{errors.experience.message}</span>
+          )}
         </div>
 
         {/* Bio */}
-        <div>
+        <div className="space-y-1">
           <label className="label">Short Bio</label>
           <textarea
             {...register("bio")}

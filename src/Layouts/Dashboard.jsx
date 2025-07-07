@@ -1,12 +1,14 @@
 import React from "react";
 import { MdLocalShipping, MdMenu } from "react-icons/md";
 import { Link, NavLink, Outlet } from "react-router";
-import '../App.css';
+import "../App.css";
 import {
   FaArrowLeft,
   FaChalkboardTeacher,
   FaClipboardList,
   FaHome,
+  FaPlusSquare,
+  FaTable,
   FaUserGraduate,
   FaUserShield,
 } from "react-icons/fa";
@@ -16,10 +18,10 @@ import useAuth from "../hooks/useAuth";
 import Logo from "../components/Logo";
 
 const Dashboard = () => {
-  const { logOutUser } = useAuth();
+  const { logOut } = useAuth();
   const { role, isLoading: roleLoading } = useUserRole();
   const handleLogout = () => {
-    logOutUser()
+    logOut()
       .then(() => {
         Swal.fire({
           position: "center",
@@ -56,6 +58,25 @@ const Dashboard = () => {
           >
             <FaChalkboardTeacher />
             Be a Teacher
+          </NavLink>
+        </>
+      )}
+
+      {!roleLoading && role === "teacher" && (
+        <>
+          <NavLink
+            to="/dashboard/addClass"
+            className="flex gap-3 py-2 items-center pl-4"
+          >
+            <FaPlusSquare />
+            Add Class
+          </NavLink>
+          <NavLink
+            to="/dashboard/myClasses"
+            className="flex gap-3 py-2 items-center pl-4"
+          >
+            <FaTable />
+            My Classes
           </NavLink>
         </>
       )}

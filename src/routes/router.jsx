@@ -12,9 +12,37 @@ import TeacherRequest from "../pages/Dashboard/TeacherRequest";
 import BeATeacher from "../pages/Dashboard/BeATeacher";
 import AllTeachers from "../pages/Dashboard/AllTeachers";
 import AllStudents from "../pages/Dashboard/AllStudents";
+import MakeAdmin from "../pages/Dashboard/MakeAdmin";
+import StudentRoutine from "../pages/RoutePage/StudentRoutine";
+import TeacherRoute from "./TeacherRoute";
+import AddClass from "../pages/Dashboard/AddClass";
+import AllClasses from "../pages/RoutePage/AllClasses";
+import MyClasses from "../pages/Dashboard/homeContent/MyClasses";
 
 const router = createBrowserRouter([
-  { path: "/", Component: Root, children: [{ index: true, Component: Home }] },
+  {
+    path: "/",
+    Component: Root,
+    children: [
+      { index: true, Component: Home },
+      {
+        path: "studentRoutine",
+        element: (
+          <PrivateRoute>
+            <StudentRoutine />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "classes",
+        element: (
+          <PrivateRoute>
+            <AllClasses/>
+          </PrivateRoute>
+        ),
+      },
+    ],
+  },
   {
     path: "auth",
     Component: AuthLayout,
@@ -33,6 +61,22 @@ const router = createBrowserRouter([
     children: [
       { index: true, Component: DashboardHome },
       {
+        path: "addClass",
+        element: (
+          <TeacherRoute>
+            <AddClass/>
+          </TeacherRoute>
+        ),
+      },
+      {
+        path: "myClasses",
+        element: (
+          <TeacherRoute>
+            <MyClasses/>
+          </TeacherRoute>
+        ),
+      },
+      {
         path: "teacherRequest",
         element: (
           <AdminRoute>
@@ -44,7 +88,7 @@ const router = createBrowserRouter([
         path: "allTeachers",
         element: (
           <AdminRoute>
-            <AllTeachers/>
+            <AllTeachers />
           </AdminRoute>
         ),
       },
@@ -52,7 +96,15 @@ const router = createBrowserRouter([
         path: "allStudents",
         element: (
           <AdminRoute>
-            <AllStudents/>
+            <AllStudents />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "makeAdmin",
+        element: (
+          <AdminRoute>
+            <MakeAdmin />
           </AdminRoute>
         ),
       },

@@ -44,7 +44,7 @@ const Navbar = () => {
           </li>
 
           <li>
-            <NavLink to="/about-us">Routine</NavLink>
+            <NavLink to="/studentRoutine">Routine</NavLink>
           </li>
           <li>
             <NavLink to="/gallery">Practice</NavLink>
@@ -57,7 +57,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar backdrop-blur-sm md:w-11/12 mx-auto z-50">
+    <div className="navbar backdrop-blur-sm md:w-11/12 mx-auto z-50 py-3">
       <div className="navbar-start gap-3">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="cursor-pointer lg:hidden">
