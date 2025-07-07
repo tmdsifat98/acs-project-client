@@ -10,6 +10,8 @@ import DashboardHome from "../pages/Dashboard/DashboardHome";
 import AdminRoute from "./AdminRoute";
 import TeacherRequest from "../pages/Dashboard/TeacherRequest";
 import BeATeacher from "../pages/Dashboard/BeATeacher";
+import AllTeachers from "../pages/Dashboard/AllTeachers";
+import AllStudents from "../pages/Dashboard/AllStudents";
 
 const router = createBrowserRouter([
   { path: "/", Component: Root, children: [{ index: true, Component: Home }] },
@@ -35,6 +37,22 @@ const router = createBrowserRouter([
         element: (
           <AdminRoute>
             <TeacherRequest />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "allTeachers",
+        element: (
+          <AdminRoute>
+            <AllTeachers/>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "allStudents",
+        element: (
+          <AdminRoute>
+            <AllStudents/>
           </AdminRoute>
         ),
       },
