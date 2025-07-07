@@ -1,17 +1,14 @@
 import React from "react";
 import { IoMenu } from "react-icons/io5";
-import Logo from "../assets/Logo-app.webp";
-import LogoMb from "../assets/Logo-S.webp";
+import logo from "../assets/logo.webp";
 import { Link, NavLink } from "react-router";
-import Theme from "./Theme";
-import Button from "./Button";
-import useAuth from "../hooks/useAuth";
 import Swal from "sweetalert2";
-import { Tooltip } from "react-tooltip";
-import "react-tooltip/dist/react-tooltip.css";
+import Theme from "./Theme";
+import useAuth from "../hooks/useAuth";
+import Logo from "./Logo";
 
 const Navbar = () => {
-  const { user, logOut } = useAuth();
+  const { user,logOut } = useAuth();
 
   const handleLogOut = () => {
     logOut()
@@ -68,8 +65,8 @@ const Navbar = () => {
           </ul>
         </div>
         <Link to="/">
-          <img className="h-10 hidden md:block" src={Logo} alt="Logo" />
-          <img className="md:hidden h-9" src={LogoMb} alt="" />
+        <div className="hidden lg:block"><Logo/></div>
+          <img className="h-10 lg:hidden" src={logo} alt="Logo" />
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -80,8 +77,6 @@ const Navbar = () => {
         {user ? (
           <div className="dropdown dropdown-end">
             <div
-              data-tooltip-id="navbar"
-              data-tooltip-content={user?.displayName}
               tabIndex={0}
               role="button"
               className="btn btn-ghost btn-circle avatar"
@@ -94,15 +89,14 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-gray-500 w-44 mt-2 p-2 shadow"
             >
-              <Button onclick={handleLogOut} label="Log Out"></Button>
+              <button onclick={handleLogOut}>Log out</button>
             </ul>
           </div>
         ) : (
           <Link to="/auth/login">
-            <Button label="Login" />
+            <button className="btn">Login</button>
           </Link>
         )}
-         <Tooltip id="navbar" place="bottom" />
       </div>
     </div>
   );
