@@ -3,6 +3,7 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import LoadingSpinner from "../../components/LoadingSpinner";
+import NoDataFound from "../../components/NoDataFound";
 
 const AllTeachers = () => {
   const axiosSecure = useAxiosSecure();
@@ -41,7 +42,7 @@ const AllTeachers = () => {
       <h2 className="text-2xl font-bold mb-4">All Approved Teachers</h2>
 
       {teachers.length === 0 ? (
-        <p>No approved teachers found.</p>
+        <NoDataFound message="No approved teachers found."/>
       ) : (
         <div className="overflow-x-auto">
           <table className="table table-zebra w-full text-center">

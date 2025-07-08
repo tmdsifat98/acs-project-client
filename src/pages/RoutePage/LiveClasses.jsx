@@ -2,6 +2,7 @@ import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import LoadingSpinner from "../../components/LoadingSpinner";
+import NoDataFound from "../../components/NoDataFound";
 
 const LiveClasses = () => {
   const axiosSecure = useAxiosSecure();
@@ -19,7 +20,7 @@ const LiveClasses = () => {
   }
 
   if (classes.length === 0) {
-    return <p className="text-center mt-10">No live classes found.</p>;
+    return <NoDataFound message="No live classes found."/>
   }
 
   return (

@@ -4,6 +4,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
 import LoadingSpinner from "../../../components/LoadingSpinner";
+import NoDataFound from "../../../components/NoDataFound";
 
 const MyClasses = () => {
   const axiosSecure = useAxiosSecure();
@@ -87,7 +88,7 @@ const MyClasses = () => {
   }
 
   if (classes.length === 0) {
-    return <p className="text-center mt-10">No classes found.</p>;
+    return <NoDataFound message="No classes found right now" />;
   }
 
   return (

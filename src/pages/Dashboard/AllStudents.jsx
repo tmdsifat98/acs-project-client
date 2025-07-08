@@ -3,6 +3,7 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import LoadingSpinner from "../../components/LoadingSpinner";
+import NoDataFound from "../../components/NoDataFound";
 
 const AllStudents = () => {
   const axiosSecure = useAxiosSecure();
@@ -42,7 +43,7 @@ const AllStudents = () => {
     <div className="max-w-6xl mx-auto mt-8 p-6 bg-base-100 dark:bg-gray-800 shadow rounded">
       <h2 className="text-2xl font-bold mb-4">All Students</h2>
       {students.length === 0 ? (
-        <p>No students found.</p>
+        <NoDataFound message="Opps! No students at this moment"/>
       ) : (
         <div className="overflow-x-auto">
           <table className="table table-zebra w-full text-center">

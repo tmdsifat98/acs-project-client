@@ -1,6 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const Root = () => {
   return (
@@ -8,9 +9,12 @@ const Root = () => {
       <nav className="backdrop-blur-lg bg-black/20">
         <Navbar />
       </nav>
-      <div className="-z-50">
+      <div className="-z-50 min-h-[calc(100vh-400px)]">
         <Outlet />
       </div>
+      <footer>
+        <Footer/>
+      </footer>
     </div>
   );
 };

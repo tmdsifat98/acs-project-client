@@ -3,6 +3,7 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import LoadingSpinner from "../../components/LoadingSpinner";
+import NoDataFound from "../../components/NoDataFound";
 
 const TeacherRequest = () => {
   const axiosSecure = useAxiosSecure();
@@ -61,7 +62,7 @@ const TeacherRequest = () => {
     <div className="max-w-4xl mx-auto mt-8 p-6 bg-base-100 dark:bg-gray-800 shadow rounded">
       <h2 className="text-2xl font-bold mb-4">Teacher Requests</h2>
       {teachers.length === 0 ? (
-        <p>No pending teacher requests found.</p>
+        <NoDataFound message="No pending teacher requests found."/>
       ) : (
         <div className="space-y-4">
           {teachers.map((teacher) => (

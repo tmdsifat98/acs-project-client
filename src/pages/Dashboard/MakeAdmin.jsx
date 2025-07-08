@@ -4,6 +4,7 @@ import useDebounce from "../../hooks/useDebounce";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import LoadingSpinner from "../../components/LoadingSpinner";
+import NoDataFound from "../../components/NoDataFound";
 
 const MakeAdmin = () => {
   const axiosSecure = useAxiosSecure();
@@ -96,7 +97,7 @@ const MakeAdmin = () => {
       {isLoading ? (
         <LoadingSpinner/>
       ) : users.length === 0 ? (
-        <p>No results found.</p>
+        <NoDataFound message="No results found. Search with right email"/>
       ) : (
         <div className="overflow-x-auto">
           <table className="table w-full">
