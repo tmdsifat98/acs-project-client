@@ -6,8 +6,8 @@ import useAuth from "../../hooks/useAuth";
 import { MdOutlineEmail } from "react-icons/md";
 import loginLottie from "../../assets/loginLotie.json";
 import SocialLogin from "./SocialLogin";
-import useAxiosLocal from "../../hooks/useAxiosLocal";
 import Lottie from "lottie-react";
+import useAxiosLocal from "../../hooks/useAxiosLocal";
 
 const Login = () => {
   const { logInUser } = useAuth();
@@ -44,7 +44,7 @@ const Login = () => {
 };
 
   useEffect(() => {
-    document.title = "Profast | Login";
+    document.title = "ACS FS | Login";
   }, []);
   return (
     <div className="flex flex-col md:flex-row justify-center md:gap-20 items-center min-h-[calc(100vh-64px)]">

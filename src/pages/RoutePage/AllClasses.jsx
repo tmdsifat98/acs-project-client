@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import LoadingSpinner from "../../components/LoadingSpinner";
@@ -8,6 +8,9 @@ const subjects = ["All", "Physics", "Math", "ICT"];
 const AllClasses = () => {
   const axiosSecure = useAxiosSecure();
   const [sub, setSub] = useState("All");
+  useEffect(()=>{
+      document.title="All classes"
+    },[])
 
   const { data: classes = [], isLoading } = useQuery({
     queryKey: ["allClasses", sub],
@@ -18,7 +21,7 @@ const AllClasses = () => {
   });
 
   if (isLoading) {
-    return <LoadingSpinner/>;
+    return <LoadingSpinner />;
   }
   function convertToEmbedUrl(url) {
     if (!url) return "";
@@ -56,7 +59,6 @@ const AllClasses = () => {
       return "";
     }
   }
-
   return (
     <div>
       <h1 className="text-center font-bold text-5xl my-5">All Classes</h1>
@@ -74,7 +76,7 @@ const AllClasses = () => {
         ))}
       </div>
       {classes.length === 0 ? (
-        <NoDataFound message="No classes found."/>
+        <NoDataFound message="No classes found." />
       ) : (
         <div className="max-w-6xl mx-auto p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {classes.map((cls) => {

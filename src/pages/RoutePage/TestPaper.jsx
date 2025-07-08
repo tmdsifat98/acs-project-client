@@ -3,9 +3,14 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import TestPaperCard from "../../components/TestPaperCard";
 import NoDataFound from "../../components/NoDataFound";
 import LoadingSpinner from "../../components/LoadingSpinner";
+import { useEffect } from "react";
 
 const TestPaper = () => {
   const axiosSecure = useAxiosSecure();
+
+  useEffect(()=>{
+      document.title="Test Papers"
+    },[])
 
   const { data: papers = [], isLoading } = useQuery({
     queryKey: ["testpapers"],

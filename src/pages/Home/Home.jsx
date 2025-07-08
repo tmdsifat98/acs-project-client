@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Banner from "./Components/Banner";
 import Newsletter from "./Components/NewsLatter";
 import FAQ from "./Components/FAQ";
@@ -6,6 +6,9 @@ import StudentReview from "./Components/StudentReview";
 import FeaturedClassess from "./Components/FeaturedClassess";
 
 const Home = () => {
+  useEffect(()=>{
+    document.title="ACS FS || Home"
+  },[])
   return (
     <div>
       <section>

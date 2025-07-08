@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { MdLocalShipping, MdMenu } from "react-icons/md";
 import { Link, NavLink, Outlet } from "react-router";
 import "../App.css";
@@ -129,6 +129,9 @@ const Dashboard = () => {
       )}
     </>
   );
+  useEffect(()=>{
+      document.title="ACS FS || Dashboard"
+    },[])
   return (
     <div className="drawer lg:drawer-open dark:bg-gray-900 dark:text-gray-200">
       <input id="my-drawer" type="checkbox" className="drawer-toggle" />

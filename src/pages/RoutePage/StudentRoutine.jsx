@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
@@ -11,6 +11,11 @@ const StudentRoutine = () => {
   const axiosSecure = useAxiosSecure();
   const queryClient = useQueryClient();
   const [isEditing, setIsEditing] = useState(false);
+
+
+  useEffect(()=>{
+      document.title="Routine"
+    },[])
 
   // fetch existing routine
   const { data: routine, isLoading } = useQuery({

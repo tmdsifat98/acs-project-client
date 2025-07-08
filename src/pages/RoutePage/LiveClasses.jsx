@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import LoadingSpinner from "../../components/LoadingSpinner";
@@ -6,6 +6,10 @@ import NoDataFound from "../../components/NoDataFound";
 
 const LiveClasses = () => {
   const axiosSecure = useAxiosSecure();
+
+  useEffect(()=>{
+      document.title="Live Classes"
+    },[])
 
   const { data: classes = [], isLoading } = useQuery({
     queryKey: ["liveClasses"],
