@@ -18,6 +18,9 @@ import TeacherRoute from "./TeacherRoute";
 import AddClass from "../pages/Dashboard/AddClass";
 import AllClasses from "../pages/RoutePage/AllClasses";
 import MyClasses from "../pages/Dashboard/homeContent/MyClasses";
+import ForbiddenPage from "../pages/Extra/ForbiddenPage";
+import AddLiveClass from "../pages/Dashboard/AddLiveClass";
+import LiveClasses from "../pages/RoutePage/LiveClasses";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +41,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AllClasses/>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "liveClasses",
+        element: (
+          <PrivateRoute>
+            <LiveClasses/>
           </PrivateRoute>
         ),
       },
@@ -77,6 +88,14 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: "addLiveClasses",
+        element: (
+          <TeacherRoute>
+            <AddLiveClass/>
+          </TeacherRoute>
+        ),
+      },
+      {
         path: "teacherRequest",
         element: (
           <AdminRoute>
@@ -84,6 +103,7 @@ const router = createBrowserRouter([
           </AdminRoute>
         ),
       },
+      
       {
         path: "allTeachers",
         element: (
@@ -114,6 +134,7 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {path:"/forbidden",Component:ForbiddenPage}
 ]);
 
 export default router;

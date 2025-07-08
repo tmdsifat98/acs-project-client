@@ -3,6 +3,7 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
+import LoadingSpinner from "../../../components/LoadingSpinner";
 
 const MyClasses = () => {
   const axiosSecure = useAxiosSecure();
@@ -82,7 +83,7 @@ const MyClasses = () => {
   };
 
   if (isLoading) {
-    return <p className="text-center mt-10">Loading classes...</p>;
+    return <LoadingSpinner/>;
   }
 
   if (classes.length === 0) {

@@ -5,6 +5,7 @@ import useUserRole from "../../hooks/useUserRole";
 import useAuth from "../../hooks/useAuth";
 import HomeStudent from "./homeContent/Student/HomeStudent";
 import HomeTeacher from "./homeContent/Teacher/HomeTeacher";
+import LoadingSpinner from "../../components/LoadingSpinner";
 
 const DashboardHome = () => {
   const { user } = useAuth();
@@ -12,9 +13,7 @@ const DashboardHome = () => {
 
   if (roleLoading) {
     return (
-      <div className="text-center mt-10">
-        <span className="loading loading-spinner loading-lg"></span>
-      </div>
+      <LoadingSpinner/>
     );
   }
 

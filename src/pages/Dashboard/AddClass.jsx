@@ -53,19 +53,23 @@ const AddClass = () => {
             <span className="text-red-500">{errors.className.message}</span>
           )}
         </div>
-        {/* Subject Name */}
-        <div>
+        <div className="space-y-1">
           <label className="label">Subject Name</label>
-          <input
-            type="text"
+          <select
             {...register("subjectName", {
-              required: "Subject name is required",
+              required: "Subject is required",
             })}
-            placeholder="Enter Subject name"
-            className="input input-bordered w-full dark:bg-gray-700"
-          />
-          {errors.className && (
-            <span className="text-red-500">{errors.subjectName.message}</span>
+            className="select select-bordered w-full dark:bg-gray-700"
+          >
+            <option value="">Select a subject</option>
+            <option value="physics">Physics</option>
+            <option value="ict">ICT</option>
+            <option value="math">Math</option>
+          </select>
+          {errors.interestedSubject && (
+            <span className="text-red-500">
+              {errors.interestedSubject.message}
+            </span>
           )}
         </div>
 

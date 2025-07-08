@@ -72,6 +72,13 @@ const Dashboard = () => {
             Add Class
           </NavLink>
           <NavLink
+            to="/dashboard/addLiveClasses"
+            className="flex gap-3 py-2 items-center pl-4"
+          >
+            <FaPlusSquare />
+            Add Live Class
+          </NavLink>
+          <NavLink
             to="/dashboard/myClasses"
             className="flex gap-3 py-2 items-center pl-4"
           >

@@ -11,8 +11,18 @@ nav a.active {
   color: #ff8000;
   font-weight: 700;
 }
+nav li a:hover{
+  border-bottom: 2px solid #ff8000;
+}
 
 section ul a.active {
   color: #ff8000;
   background-color: gainsboro;
+}
+.banner-3 {
+  background: linear-gradient(0deg, rgb(15, 15, 15, 0.5), rgb(15, 15, 15, 0.88)),
+    url("./assets/acs-banner-3.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }

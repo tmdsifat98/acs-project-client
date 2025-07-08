@@ -37,17 +37,17 @@ const Navbar = () => {
       <li>
         <NavLink to="/classes">Classes</NavLink>
       </li>
+      <li>
+        <NavLink to="/testPaper">Test Paper</NavLink>
+      </li>
+
+      <li>
+        <NavLink to="/studentRoutine">Routine</NavLink>
+      </li>
       {user && (
         <>
           <li>
-            <NavLink to="/testPaper">Test Paper</NavLink>
-          </li>
-
-          <li>
-            <NavLink to="/studentRoutine">Routine</NavLink>
-          </li>
-          <li>
-            <NavLink to="/gallery">Practice</NavLink>
+            <NavLink to="/liveClasses">Live Class</NavLink>
           </li>
           <li>
             <NavLink to="/dashboard">Dashboard</NavLink>
@@ -57,7 +57,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar backdrop-blur-sm md:w-11/12 mx-auto z-50 py-3">
+    <div className="navbar md:w-11/12 mx-auto z-50 py-3">
       <div className="navbar-start gap-3">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="cursor-pointer lg:hidden">
@@ -82,33 +82,32 @@ const Navbar = () => {
       </div>
       <div className="navbar-end gap-2 lg:gap-4 items-center">
         {user ? (
-          <div className="dropdown dropdown-end">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost btn-circle avatar"
-            >
-              <div className="w-10 h-10 rounded-full z-50">
-                <img
-                  id="user-photo"
-                  alt={user?.displayName}
-                  src={user?.photoURL}
-                />
-              </div>
+          <div className="dropdown">
+            <div tabIndex={0} role="button">
+              <img
+                src={user.photoURL}
+                className="w-10 h-10 rounded-full cursor-pointer"
+              />
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content items-center gap-4 w-44 mt-2 p-2 shadow"
+              className="dropdown-content menu absolute bg-white dark:bg-gray-800 bg-red items-center gap-2 rounded-box z-1 w-44 mt-2 p-2 shadow-sm right-0"
             >
               <Theme />
-              <button className="btn btn-primary" onClick={handleLogOut}>
-                Log out
-              </button>
+              <li>{user.displayName}</li>
+              <li>
+                <button
+                  onClick={handleLogOut}
+                  className="btn btn-primary text-black"
+                >
+                  Logout
+                </button>
+              </li>
             </ul>
           </div>
         ) : (
           <Link to="/auth/login">
-            <button className="btn">Login</button>
+            <button className="btn hover:bg-primary">Login</button>
           </Link>
         )}
       </div>

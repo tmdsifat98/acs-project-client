@@ -4,6 +4,7 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
+import LoadingSpinner from "../../components/LoadingSpinner";
 
 const StudentRoutine = () => {
   const { user } = useAuth();
@@ -53,7 +54,7 @@ const StudentRoutine = () => {
   };
 
   if (isLoading) {
-    return <p className="text-center mt-8">Loading routine...</p>;
+    return <LoadingSpinner/>;
   }
 
   return (

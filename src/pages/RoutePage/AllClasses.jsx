@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import LoadingSpinner from "../../components/LoadingSpinner";
 
+const subjects = ["All", "Physics", "Math", "ICT"];
 const AllClasses = () => {
   const axiosSecure = useAxiosSecure();
-  const [sub,setSub]=useState("")
+  const [sub, setSub] = useState("All");
 
   const { data: classes = [], isLoading } = useQuery({
-    queryKey: ["allClasses",sub],
+    queryKey: ["allClasses", sub],
     queryFn: async () => {
       const res = await axiosSecure.get(`/classes?sub=${sub}`);
       return res.data;
@@ -15,7 +17,7 @@ const AllClasses = () => {
   });
 
   if (isLoading) {
-    return <p className="text-center mt-10">Loading classes...</p>;
+    return <LoadingSpinner/>;
   }
   function convertToEmbedUrl(url) {
     if (!url) return "";
@@ -53,24 +55,23 @@ const AllClasses = () => {
       return "";
     }
   }
-  console.log(sub);
-
-  const subjects=["All","Physics","Math","ICT"]
 
   return (
     <div>
-        <h1 className="text-center font-bold text-5xl my-4">All Classes</h1>
-         <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {subjects.map((subject, key) => (
-            <button
-              key={key}
-              onClick={() => setSub(subject)}
-              className={`px-5 py-1 rounded-full transition-colors duration-300 capitalize cursor-pointer ${sub===subject?"bg-primary":""}`}
-              >
-              {subject}
-            </button>
-          ))}
-        </div>
+      <h1 className="text-center font-bold text-5xl my-5">All Classes</h1>
+      <div className="flex flex-wrap justify-center gap-4 mt-6 mb-12">
+        {subjects.map((subject) => (
+          <button
+            key={subject}
+            onClick={() => setSub(subject)}
+            className={`px-5 py-1 rounded-full transition-colors duration-300 capitalize cursor-pointer
+        ${sub === subject ? "bg-primary text-white" : "bg-gray-200 text-black"}
+      `}
+          >
+            {subject}
+          </button>
+        ))}
+      </div>
       {classes.length === 0 ? (
         <p className="text-center mt-10">No classes found.</p>
       ) : (

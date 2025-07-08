@@ -3,6 +3,7 @@ import { useQuery, useMutation } from "@tanstack/react-query";
 import useDebounce from "../../hooks/useDebounce";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import LoadingSpinner from "../../components/LoadingSpinner";
 
 const MakeAdmin = () => {
   const axiosSecure = useAxiosSecure();
@@ -93,7 +94,7 @@ const MakeAdmin = () => {
       </form>
 
       {isLoading ? (
-        <p>Loading...</p>
+        <LoadingSpinner/>
       ) : users.length === 0 ? (
         <p>No results found.</p>
       ) : (

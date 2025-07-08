@@ -2,20 +2,21 @@ import React from "react";
 import useAuth from "../hooks/useAuth";
 import useUserRole from "../hooks/useUserRole";
 import { Navigate } from "react-router";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const AdminRoute = ({ children }) => {
   const { user, loading } = useAuth();
     const { role, isLoading: roleLoading } = useUserRole();
 
   if (loading) {
-    return <div>Loading Auth...</div>;
+    return <LoadingSpinner/>;
   }
 
   if (!user) {
     return <Navigate to="/forbidden" replace />;
   }
   if (roleLoading) {
-    return <div>Loading Role...</div>;
+    return <LoadingSpinner/>;
   }
 
   if (role === "admin") {
