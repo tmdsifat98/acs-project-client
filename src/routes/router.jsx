@@ -8,19 +8,21 @@ import Dashboard from "../Layouts/Dashboard";
 import PrivateRoute from "./PrivateRoute";
 import DashboardHome from "../pages/Dashboard/DashboardHome";
 import AdminRoute from "./AdminRoute";
-import TeacherRequest from "../pages/Dashboard/TeacherRequest";
-import BeATeacher from "../pages/Dashboard/BeATeacher";
-import AllTeachers from "../pages/Dashboard/AllTeachers";
-import AllStudents from "../pages/Dashboard/AllStudents";
-import MakeAdmin from "../pages/Dashboard/MakeAdmin";
+import TeacherRequest from "../pages/Dashboard/homeContent/Admin/TeacherRequest";
+import BeATeacher from "../pages/Dashboard/homeContent/Student/BeATeacher";
+import AllTeachers from "../pages/Dashboard/homeContent/Admin/AllTeachers";
+import AllStudents from "../pages/Dashboard/homeContent/Admin/AllStudents";
+import MakeAdmin from "../pages/Dashboard/homeContent/Admin/MakeAdmin";
 import StudentRoutine from "../pages/RoutePage/StudentRoutine";
 import TeacherRoute from "./TeacherRoute";
-import AddClass from "../pages/Dashboard/AddClass";
+import AddClass from "../pages/Dashboard/homeContent/Teacher/AddClass";
 import AllClasses from "../pages/RoutePage/AllClasses";
-import MyClasses from "../pages/Dashboard/homeContent/MyClasses";
+import MyClasses from "../pages/Dashboard/homeContent/Teacher/MyClasses";
 import ForbiddenPage from "../pages/Extra/ForbiddenPage";
-import AddLiveClass from "../pages/Dashboard/AddLiveClass";
+import AddLiveClass from "../pages/Dashboard/homeContent/Teacher/AddLiveClass";
 import LiveClasses from "../pages/RoutePage/LiveClasses";
+import UploadTestPaper from "../pages/Dashboard/homeContent/Teacher/UploadTestPaper";
+import TestPaper from "../pages/RoutePage/TestPaper";
 
 const router = createBrowserRouter([
   {
@@ -49,6 +51,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <LiveClasses/>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "testPaper",
+        element: (
+          <PrivateRoute>
+            <TestPaper/>
           </PrivateRoute>
         ),
       },
@@ -92,6 +102,14 @@ const router = createBrowserRouter([
         element: (
           <TeacherRoute>
             <AddLiveClass/>
+          </TeacherRoute>
+        ),
+      },
+      {
+        path: "uploadTestPaper",
+        element: (
+          <TeacherRoute>
+            <UploadTestPaper/>
           </TeacherRoute>
         ),
       },

@@ -1,8 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-import useAxiosSecure from "../../hooks/useAxiosSecure";
-import useAuth from "../../hooks/useAuth";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import useAuth from "../../../../hooks/useAuth";
 
 const AddClass = () => {
   const { user } = useAuth();
@@ -37,7 +37,7 @@ const AddClass = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto mt-8 bg-base-100 dark:bg-gray-800 p-6 shadow rounded">
+    <div className="max-w-2xl mx-auto mt-8 bg-base-100 dark:bg-gray-800 p-6 shadow rounded minhs">
       <h2 className="text-2xl font-bold mb-4">Add New Class</h2>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         {/* Class Name */}

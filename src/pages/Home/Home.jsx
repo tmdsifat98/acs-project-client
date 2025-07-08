@@ -1,21 +1,28 @@
 import React from "react";
 import Banner from "./Components/Banner";
-import useAuth from "../../hooks/useAuth";
-import LoadingSpinner from "../../components/LoadingSpinner";
+import Newsletter from "./Components/NewsLatter";
+import FAQ from "./Components/FAQ";
+import StudentReview from "./Components/StudentReview";
+import FeaturedClassess from "./Components/FeaturedClassess";
 
 const Home = () => {
-  const { user } = useAuth();
   return (
     <div>
-      {user ? (
-        <>
-          <section>
-            <Banner />
-          </section>
-        </>
-      ) : (
-        <LoadingSpinner/>
-      )}
+      <section>
+        <Banner />
+      </section>
+      <section>
+        <FeaturedClassess />
+      </section>
+      <section>
+        <StudentReview />
+      </section>
+      <section id="faq">
+        <FAQ />
+      </section>
+      <section>
+        <Newsletter />
+      </section>
     </div>
   );
 };

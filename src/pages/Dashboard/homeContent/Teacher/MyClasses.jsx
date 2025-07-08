@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import useAuth from "../../../hooks/useAuth";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import useAuth from "../../../../hooks/useAuth";
 import Swal from "sweetalert2";
-import LoadingSpinner from "../../../components/LoadingSpinner";
-import NoDataFound from "../../../components/NoDataFound";
+import LoadingSpinner from "../../../../components/LoadingSpinner";
+import NoDataFound from "../../../../components/NoDataFound";
 
 const MyClasses = () => {
   const axiosSecure = useAxiosSecure();

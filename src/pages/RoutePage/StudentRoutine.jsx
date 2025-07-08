@@ -16,7 +16,7 @@ const StudentRoutine = () => {
   const { data: routine, isLoading } = useQuery({
     queryKey: ["studentRoutine", user?.email],
     queryFn: async () => {
-      const res = await axiosSecure.get(`/routines/${user.email}`);
+      const res = await axiosSecure.get(`/routines?email=${user.email}`);
       return res.data;
     },
   });

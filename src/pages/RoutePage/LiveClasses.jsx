@@ -30,15 +30,15 @@ const LiveClasses = () => {
       {classes.map((cls) => (
         <div
           key={cls._id}
-          className="bg-white shadow rounded p-4 flex flex-col justify-between"
+          className="bg-white dark:bg-gray-700 shadow rounded p-4 flex flex-col justify-between"
         >
           <div>
             <h3 className="text-xl font-semibold mb-2">{cls.title}</h3>
             <p className="mb-2">by <strong>{cls.teacherName}</strong></p>
-            <p className="text-sm text-gray-600 mb-2">
+            <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">
               {new Date(cls.dateTime).toLocaleString()}
             </p>
-            <p className="text-gray-700 mb-4 line-clamp-3">{cls.description}</p>
+            <p className="text-gray-700 dark:text-gray-300 mb-4 line-clamp-3">{cls.description}</p>
           </div>
           <a
             href={cls.meetingLink}

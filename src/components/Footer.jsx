@@ -23,17 +23,17 @@ const Footer = () => {
         </div>
 
         {/* Resources */}
-        <divdiv className="flex flex-col justify-center items-center">
+        <div className="flex flex-col justify-center items-center">
           <h3 className="text-lg font-semibold text-black dark:text-white mb-3">Resources</h3>
           <ul className="space-y-2">
             <li><a href="/blog" className="hover:underline">Blog</a></li>
             <li><a href="/privacy" className="hover:underline">Privacy Policy</a></li>
             <li><a href="/terms" className="hover:underline">Terms of Use</a></li>
           </ul>
-        </divdiv>
+        </div>
 
         {/* Social Links */}
-        <divdiv className="flex flex-col items-center">
+        <div className="flex flex-col items-center">
           <h3 className="text-lg font-semibold text-black dark:text-white mb-3">Follow Us</h3>
           <div className="flex space-x-4">
             <a href="#" className="hover:text-white"><FaFacebookF /></a>
@@ -41,7 +41,7 @@ const Footer = () => {
             <a href="#" className="hover:text-white"><FaLinkedinIn /></a>
             <a href="#" className="hover:text-white"><FaInstagram /></a>
           </div>
-        </divdiv>
+        </div>
 
       </div>
 

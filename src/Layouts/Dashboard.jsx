@@ -85,6 +85,13 @@ const Dashboard = () => {
             <FaTable />
             My Classes
           </NavLink>
+          <NavLink
+            to="/dashboard/uploadTestPaper"
+            className="flex gap-3 py-2 items-center pl-4"
+          >
+            <FaTable />
+            Upload Test Paper
+          </NavLink>
         </>
       )}
 
@@ -141,7 +148,7 @@ const Dashboard = () => {
           </div>
           <div className="mx-2 flex-1 px-2 text-2xl font-bold">Dashboard</div>
         </div>
-        <div className="px-6 py-4">
+        <div className="px-6 py-4 min-h-screen">
           <Outlet />
         </div>
       </div>
@@ -152,7 +159,7 @@ const Dashboard = () => {
           className="drawer-overlay"
         ></label>
         <ul className="menu bg-gray-100 min-h-full w-80 p-0 dark:bg-gray-700 dark:text-gray-100">
-          <Link to="/" className="bg-gray-300 py-2 px-4">
+          <Link to="/" className="bg-gray-300 dark:bg-gray-700 py-2 px-4">
             <Logo />
           </Link>
           {links}

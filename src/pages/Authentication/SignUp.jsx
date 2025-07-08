@@ -83,10 +83,11 @@ const SignUp = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row justify-center md:gap-20 mt-12 md:mt-0 items-center min-h-[calc(100vh-64px)]">
+    <div className="flex flex-col md:flex-row justify-center md:gap-20 mt-12 md:mt-0 items-center min-h-[calc(100vh-72px)]">
       {/* Left Side - Form */}
       <div className="z-10 w-11/12 backdrop-blur-sm p-8 rounded shadow-2xl md:max-w-md transition-colors duration-500">
-        <div className="flex justify-center mb-4">
+                <h1 className="text-center text-black dark:text-white font-semibold text-3xl mb-3">Please Sign Up!</h1>
+        <div className="flex justify-center mb-2">
           <div className="relative w-24 h-24 tooltip" data-tip="Upload image">
             {loading ? (
               <div className="w-24 h-24 rounded-full border-4 border-dashed border-gray-400 animate-spin"></div>
@@ -200,7 +201,7 @@ const SignUp = () => {
             Login
           </Link>
         </p>
-        <div className="divider">OR</div>
+        <div className="divider dark:text-white">OR</div>
         <SocialLogin />
       </div>
 

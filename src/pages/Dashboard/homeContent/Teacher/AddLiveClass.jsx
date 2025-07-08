@@ -1,8 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import useAxiosSecure from "../../hooks/useAxiosSecure";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
-import useAuth from "../../hooks/useAuth";
+import useAuth from "../../../../hooks/useAuth";
 
 const AddLiveClass = () => {
   const axiosSecure = useAxiosSecure();
@@ -28,7 +28,7 @@ const AddLiveClass = () => {
   };
 
   return (
-    <div className="max-w-xl mx-auto p-6 bg-white shadow rounded mt-10">
+    <div className="max-w-xl mx-auto p-6 bg-white dark:bg-gray-700 shadow rounded mt-10">
       <h2 className="text-2xl font-semibold mb-4">Create Live Class</h2>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div>

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useQuery, useMutation } from "@tanstack/react-query";
-import useDebounce from "../../hooks/useDebounce";
-import useAxiosSecure from "../../hooks/useAxiosSecure";
+import useDebounce from "../../../../hooks/useDebounce";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
-import LoadingSpinner from "../../components/LoadingSpinner";
-import NoDataFound from "../../components/NoDataFound";
+import LoadingSpinner from "../../../../components/LoadingSpinner";
+import NoDataFound from "../../../../components/NoDataFound";
 
 const MakeAdmin = () => {
   const axiosSecure = useAxiosSecure();
