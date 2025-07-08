@@ -1,12 +1,83 @@
-# React + Vite
+# 🌐 ACS Future School
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a full-featured web application developed using modern frontend and backend technologies. It includes user authentication, class booking, real-time update integration, and more. The project is optimized for performance, usability, and scalability.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Live Site
+> [ACS Future School]([https://your-vercel-link.vercel.app](https://acs-future-school1.web.app/))
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Technologies Used
+
+### 🔹 Frontend:
+- **React**
+- **React Router**
+- **Tailwind CSS** 
+- **DaisyUI** – Tailwind-based UI components
+- **Lottie React** – for animated illustrations
+- **Swiper** – for carousels and sliders
+- **React Icons** – for iconography
+- **React Hook Form** – for form handling and validation
+- **SweetAlert2** – for beautiful alert messages
+
+### 🔹 Backend:
+- **Firebase Authentication** – for user auth and token management
+- **MongoDB** (with Mongoose or native driver)
+- **Express.js** – server-side API handling
+- **Axios** – for secure HTTP requests
+
+---
+
+## 📁 Project Structure (Frontend)
+
+src/
+│
+├── components/ # Reusable UI components
+├── pages/ # Route-based page components
+├── hooks/ # Custom hooks (e.g. useAuth, useAxiosSecure)
+├── routes/ # Route definitions
+├── layout/ # Main layouts
+├── assets/ # Images, icons, lottie files
+└── main.jsx # Entry point
+
+---
+
+## 🔐 Authentication
+- Firebase Authentication used for secure login/signup.
+- JWT issued from backend and stored securely.
+- `axiosSecure` interceptor adds token to every secure request.
+
+---
+
+## 📦 Features Implemented
+
+- 🔒 Authentication (Login / Signup)
+- 🏫 Add / Update / Delete Classes
+- 📺 YouTube Video Embed support
+- 🌟 Featured Classes Section
+- 📝 Real-Time Reviews with Ratings
+- 🌙 Dark/Light Mode Support
+- 📆 Class Scheduling
+- 📊 Dashboard with Stats
+- ✅ Form Validation with React Hook Form
+- 🧠 Data Fetching using TanStack Query
+- 🎉 Animations with Lottie
+- 📲 Responsive UI (Mobile-first design)
+- 🏫Admin, teacher and student role base rendering
+
+---
+
+## ⚙️ Setup & Run Locally
+
+```bash
+# Clone the repository
+git clone https://github.com/tmdsifat98/acs-project-client
+
+# Install dependencies
+npm install
+
+# Run the app
+npm run dev
+```
