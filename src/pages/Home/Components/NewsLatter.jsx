@@ -3,7 +3,7 @@ import { MdOutlineMailOutline } from "react-icons/md";
 
 const Newsletter = () => {
   return (
-     <div className="max-w-3xl mx-auto text-center px-4 border-2 rounded py-12">
+     <div className="max-w-3xl mx-auto text-center px-4 border-2 rounded py-12 my-10">
         <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">
           Stay Updated!
         </h2>

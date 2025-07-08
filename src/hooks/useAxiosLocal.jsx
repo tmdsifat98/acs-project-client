@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosLocal = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: "https://project-hsc-server-gmsgj37ir-tmdsifat98s-projects.vercel.app",
 });
 
 const useAxiosLocal = () => {
