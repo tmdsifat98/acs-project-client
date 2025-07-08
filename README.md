@@ -5,7 +5,7 @@ This is a full-featured web application developed using modern frontend and back
 ---
 
 ## 🚀 Live Site
-> [ACS Future School]([https://your-vercel-link.vercel.app](https://acs-future-school1.web.app/))
+> [ACS Future School](https://acs-future-school1.web.app/)
 
 ---
 
