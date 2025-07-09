@@ -7,6 +7,8 @@ This is a full-featured web application developed using modern frontend and back
 ## 🚀 Live Site
 > [ACS Future School](https://acs-future-school1.web.app/)
 
+#admin login - stjoy2003@gmail.com Aa1234
+#Teacher Login - abhidada@gmail.com Aa1234
 ---
 
 ## 🛠️ Technologies Used
